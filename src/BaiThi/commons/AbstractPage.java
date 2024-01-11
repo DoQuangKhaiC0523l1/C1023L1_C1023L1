@@ -1,4 +1,4 @@
-package BaiThi.actions.commons;
+package BaiThi.commons;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;

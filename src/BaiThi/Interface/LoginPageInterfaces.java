@@ -1,4 +1,4 @@
-package Rise.interfaces;
+package BaiThi.Interface;
 
 public class LoginPageInterfaces {
     public static final String txbEmail = "//input[@name='email']";

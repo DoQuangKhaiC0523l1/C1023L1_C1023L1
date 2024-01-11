@@ -4,13 +4,13 @@
     <test thread-count="1" name="Run on chrome">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="Rise.TestCase.TC"/>
+            <class name="BaiThi.TestCase.TC"/>
         </classes>
     </test> <!-- b1 -->
 <!--    <test thread-count="5" name="Run on firefox">-->
 <!--        <parameter name="browser" value="firefox"/>-->
 <!--        <classes>-->
-<!--            <class name="Rise.TestCase.TC"/>-->
+<!--            <class name="BaiThi.TestCase.TC"/>-->
 <!--        </classes>-->
 <!--    </test> &lt;!&ndash; b1 &ndash;&gt;-->
 

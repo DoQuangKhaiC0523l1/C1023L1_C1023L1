@@ -1,6 +1,6 @@
-package actions.pages;
+package BaiThi.actions.pages;
 
-import actions.commons.AbstractPage;
+import BaiThi.actions.commons.AbstractPage;
 import interfaces.LoginPageInterface;
 import org.openqa.selenium.WebDriver;
 
