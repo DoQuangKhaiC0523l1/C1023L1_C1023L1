@@ -66,8 +66,20 @@ public class AbstractPage {
         WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(xpath));
     }
+    public void waitForElementInvisible(WebDriver driver, String locator,String... dynamicLocator) {
+        locator = String.format(locator,(Object[]) dynamicLocator);
+        By xpath = By.xpath(locator);
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(xpath));
+    }
 
     public void waitForElementClickable(WebDriver driver, String locator) {
+        WebElement element = findAnElement(driver, locator);
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+    public void waitForElementClickable(WebDriver driver, String locator,String... dynamicLocator) {
+        locator = String.format(locator,(Object[]) dynamicLocator);
         WebElement element = findAnElement(driver, locator);
         WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.elementToBeClickable(element));
@@ -78,8 +90,21 @@ public class AbstractPage {
         WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.presenceOfElementLocated(xpath));
     }
-
+    public void waitForElementPresence(WebDriver driver, String locator,String... dynamicLocator) {
+        locator = String.format(locator,(Object[]) dynamicLocator);
+        By xpath = By.xpath(locator);
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.presenceOfElementLocated(xpath));
+    }
+    // locator = //button[@id='login']
     public void clickToElement(WebDriver driver, String locator) {
+        WebElement element = findAnElement(driver, locator);
+        waitForElementVisible(driver, locator);
+        element.click();
+    }
+    // locator = //button[@id='%s'] %s sẽ thay thế bằng dynamic locator
+    public void clickToElement(WebDriver driver, String locator,String... dynamicLocator) {
+        locator = String.format(locator,(Object[]) dynamicLocator);
         WebElement element = findAnElement(driver, locator);
         waitForElementVisible(driver, locator);
         element.click();
@@ -175,5 +200,13 @@ public class AbstractPage {
         WebElement element = findAnElement(driver,locator);
         element.sendKeys(value);
         actions.sendKeys(Keys.ENTER).perform();
+    }
+    public Object clickByJSForWebElement(WebDriver driver, WebElement element) {
+        try {
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            return js.executeScript("arguments[0].click();", element);
+        } catch (Exception e) {
+            return e;
+        }
     }
 }

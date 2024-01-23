@@ -1,10 +1,13 @@
 package BaiThi.Interface;
 
 public class SaleInterfaces {
-    public static final String Sales = "//a[@href='https://rise.fairsketch.com/']";
-    public static final String Invoices = "//a[@href='https://rise.fairsketch.com/invoices']";
-    public static final String addPayment ="//a[@class='btn btn-default mb0'][normalize-space()='Add payment']";
-    public static final String bttWrench = "//table[@id='monthly-invoice-table']//tbody/tr[3]//button";
-    public static final String bttDelete = "//button/following::ul/li[2]/a";
-    public static final String confirmDelete = "//button[@id='confirmDeleteButton']";
+    public static final String BTN_SALES = "//a[@href='https://rise.fairsketch.com/']";
+    public static final String BTN_INVOICES = "//a[@href='https://rise.fairsketch.com/invoices']";
+    public static final String BTN_ADDINVOICE = "//a[@title='Add invoice']";
+    public static final String BTN_ADDPAYMENT ="//a[normalize-space()='Add payment']";
+    public static final String BTN_RECURRING = "//a[normalize-space()='Recurring']";
+    public static final String DETAIL_INVOICE = "//table[@id='recurring-invoice-table']//td/a[1]";
+    public static final String BTN_PAYMENT = "//ul[@id='invoice-tabs']//a[contains(.,'Payment')]";
+    public static final String BTN_DELETE = "//table[@id='invoice-payment-table']//td/a/following::a[1]";
+
 }

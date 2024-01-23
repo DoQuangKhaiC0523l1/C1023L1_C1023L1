@@ -1,7 +1,7 @@
 package BaiThi.Page;
 
 import BaiThi.Interface.AddPaymentInterfaces;
-import actions.commons.AbstractPage;
+import BaiThi.commons.AbstractPage;
 import org.openqa.selenium.WebDriver;
 
 public class AddPayment extends AbstractPage {
@@ -9,25 +9,24 @@ public class AddPayment extends AbstractPage {
     public AddPayment(WebDriver driver){
         this.driver=driver;
     }
-    public void inputInvoice(){
-        clickToElement(driver,AddPaymentInterfaces.clickInvoice);
-        enter(driver, AddPaymentInterfaces.cbbInvoice,"INVOICE #20");
+    public void selectValueInPaymentMethod(String cbb,String value){
+        clickToElement(driver,AddPaymentInterfaces.CBB_PAYMENTMETHOD,cbb);
+        clickToElement(driver,AddPaymentInterfaces.OPTION_PAYMENTMETHOD,value);
     }
-    public void inputPaymentmethod() {
-        clickToElement(driver,AddPaymentInterfaces.clickPaymentMethod);
-        enter(driver,AddPaymentInterfaces.cbbPaymentMethod,"Cash");
+    public void enterPaymentDate(String value){
+        cleanToElement(driver,AddPaymentInterfaces.TXB_PAYMENTDATE);
+        enter(driver,AddPaymentInterfaces.TXB_PAYMENTDATE,value);
     }
-    public void selectPaymentDate() {
-       sendkeyToElement(driver,AddPaymentInterfaces.inputPayment,"1-2-2004");
+    public void enterAmount(String value){
+        cleanToElement(driver,AddPaymentInterfaces.TXB_AMOUNT);
+        enter(driver,AddPaymentInterfaces.TXB_AMOUNT,value);
     }
-    public void inputAmount(){
-        cleanToElement(driver,AddPaymentInterfaces.txbAmount);
-        sendkeyToElement(driver,AddPaymentInterfaces.txbAmount,"1");
-    }
-    public void inputNote(){
-        enter(driver,AddPaymentInterfaces.txbNote,"Do Quang Khai");
+    public void enterNote(String value){
+        clickToElement(driver,AddPaymentInterfaces.TXA_NOTECLICK1);
+        clickToElement(driver,AddPaymentInterfaces.TXA_NOTECLICK);
+        sendkeyToElement(driver,AddPaymentInterfaces.TXA_NOTE,value);
     }
     public void clickSave(){
-        clickToElement(driver,AddPaymentInterfaces.bttSave);
+        clickToElement(driver,AddPaymentInterfaces.BTN_SAVE);
     }
 }

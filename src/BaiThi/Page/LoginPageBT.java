@@ -1,36 +1,36 @@
 package BaiThi.Page;
 
 import BaiThi.Interface.LoginPageInterfaces;
-import actions.commons.AbstractPage;
+import BaiThi.commons.AbstractPage;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPageBT extends AbstractPage {
     WebDriver driver;
+    String url = "https://rise.fairsketch.com/signin";
 
     public LoginPageBT(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void openLoginPage(String url) {
-        openUrl(driver, url);
+    public void openLoginPage() {
+        openUrl(driver,url);
     }
 
-    public String getUserName() {
-       return getTextElement(driver, LoginPageInterfaces.getUserName);
-    }
-
-    public String getPass() {
-       return getTextElement(driver, LoginPageInterfaces.getPassWord);
-    }
-
+//    public String getUserName() {
+//       return getTextElement(driver, LoginPageInterfaces.getUserName);
+//    }
+//
+//    public String getPass() {
+//       return getTextElement(driver, LoginPageInterfaces.getPassWord);
+//    }
     public void inputUserNameAndPassword(String user, String password) {
-        cleanToElement(driver, LoginPageInterfaces.txbEmail);
-        cleanToElement(driver, LoginPageInterfaces.txbPass);
-        sendkeyToElement(driver, LoginPageInterfaces.txbEmail, user);
-        sendkeyToElement(driver, LoginPageInterfaces.txbPass, password);
+        cleanToElement(driver, LoginPageInterfaces.TXB_EMAIL);
+        cleanToElement(driver, LoginPageInterfaces.TXB_PASSWORD);
+        sendkeyToElement(driver, LoginPageInterfaces.TXB_EMAIL, user);
+        sendkeyToElement(driver, LoginPageInterfaces.TXB_PASSWORD, password);
     }
 
     public void clickSignIn() {
-        clickToElement(driver, LoginPageInterfaces.bttLogin);
+        clickToElement(driver, LoginPageInterfaces.BTN_SIGNIN);
     }
 }

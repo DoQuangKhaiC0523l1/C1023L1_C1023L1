@@ -8,7 +8,7 @@
         </classes>
     </test> <!-- b1 -->
 <!--    <test thread-count="5" name="Run on firefox">-->
-<!--        <parameter name="browser" value="firefox"/>-->
+<!--        <parameter name="browser" va    lue="firefox"/>-->
 <!--        <classes>-->
 <!--            <class name="BaiThi.TestCase.TC"/>-->
 <!--        </classes>-->
